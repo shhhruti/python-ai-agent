@@ -105,6 +105,23 @@ http://127.0.0.1:5000
 
 ---
 
+## 🤖 LLM Integration (Bonus)
+
+The agent includes an optional LLM-based fallback for handling open-ended or general user queries.
+
+- Keyword-based intent detection is applied first for deterministic tasks such as calculations, Wikipedia search, and to-do management.
+- If no intent matches, the query is forwarded to an LLM along with recent conversation history to preserve context.
+- The LLM is integrated as a **fallback mechanism**, ensuring core functionality remains lightweight and interpretable.
+
+### Error Handling & Quota Awareness
+- API quota and rate-limit errors are handled gracefully.
+- If the LLM service is unavailable, the agent returns a clear fallback message instead of failing.
+- With a valid API key and available credits, the same integration seamlessly enables LLM-powered responses.
+
+This hybrid approach combines rule-based reliability with the flexibility of large language models.
+
+---
+
 ## 🛠️ Tech Stack
 
 - **Programming Language:** Python
