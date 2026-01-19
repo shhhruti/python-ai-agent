@@ -4,6 +4,8 @@ from calculator import calculate
 from wikipedia_tool import wiki_search
 from todo import add_task, show_tasks
 from jokes import tell_joke
+from llm_helper import ask_llm
+
 
 app = Flask(__name__)
 agent = AIAgent()
@@ -32,7 +34,7 @@ def get_agent_response(user_input):
         return tell_joke()
 
     else:
-        return "Sorry, I didn’t understand that."
+        return ask_llm(user_input, chat_history)
 
 @app.route("/", methods=["GET", "POST"])
 def index():
