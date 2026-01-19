@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Agent</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="chat-container">
+        <h2>🤖 AI Agent</h2>
+
+        <div class="chat-history">
+            {% for message in chat_history %}
+                <div class="user-msg">
+                    <strong>You:</strong> {{ message.user }}
+                </div>
+                <div class="agent-msg">
+                    <strong>Agent:</strong> {{ message.agent }}
+                </div>
+            {% endfor %}
+        </div>
+
+        <form method="POST">
+            <input 
+                type="text" 
+                name="user_input" 
+                placeholder="Type a command..."
+                required
+            >
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</body>
+</html>
